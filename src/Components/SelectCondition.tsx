@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Fuse from "fuse.js";
 import { Condition, conditions } from "../Lib/Condition";
+import "./SelectCondition.css";
 
 interface Props {
     condition: Condition | undefined;
@@ -11,11 +12,13 @@ interface Props {
 interface State {
     currentSearch: string,
     filtered: Array<Fuse.FuseResult<Condition>>,
+    showResults: Boolean,
 }
 
 const defaultState: State = {
     currentSearch: "",
-    filtered: []
+    filtered: [],
+    showResults: true,
 }
 
 function SelectCondition(props: Props) {
@@ -34,6 +37,27 @@ function SelectCondition(props: Props) {
         })
     }
 
+    function onDeselectCondition(_: any) {
+        props.onDeselectCondition();
+        setState((s) => {
+            return { ...s, currentSearch: "", filtered: [] }
+        })
+    }
+
+    // function onBlur() {
+    //     setState((s) => {
+    //         return { ...s, showResults: false }
+    //     })
+    // }
+
+    // function onFocus() {
+    //     setState((s) => {
+    //         return { ...s, showResults: true }
+    //     })
+    // }
+
+    const showResultsClass = state.showResults ? "" : " hidden";
+
     if (props.condition) {
         return (
             <div className="select-condition">
@@ -47,7 +71,7 @@ function SelectCondition(props: Props) {
                         <div className="select-condition-selected-name">
                             {props.condition.name}
                         </div>
-                        <button className="select-condition-selected-delete" onClick={(e) => props.onDeselectCondition()}>
+                        <button className="select-condition-selected-delete" onClick={onDeselectCondition}>
                             ×
                         </button>
                     </div>
@@ -57,22 +81,25 @@ function SelectCondition(props: Props) {
     } else {
         return (
             <div className="select-condition">
-                <div className="select-condition-results-container">
-                    {state.filtered.map((r) => ViewConditionResult(r, props.onSelectCondition))}
-                </div>
-                <div className="select-condition-input-container">
+                <div className="select-condition-input-container"
+                >
                     <label
                         className="select-condition-input-label"
                         htmlFor="select-condition-input">
                         Simulated Disease or Condition
                     </label>
-                    <input
-                        type="text"
-                        id="select-condition-input"
-                        className="select-condition-input"
-                        value={state.currentSearch}
-                        onChange={onChange}
-                    />
+                    <div className="select-condition-input-results-container">
+                        <div className={"select-condition-results-container" + showResultsClass}>
+                            {state.filtered.map((r) => ViewConditionResult(r, props.onSelectCondition))}
+                        </div>
+                        <input
+                            type="text"
+                            id="select-condition-input"
+                            className="select-condition-input"
+                            value={state.currentSearch}
+                            onChange={onChange}
+                        />
+                    </div>
                 </div>
             </div>
         )

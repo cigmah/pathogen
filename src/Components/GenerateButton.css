@@ -1,0 +1,25 @@
+.generate-button, .generate-button-placeholder {
+    margin-top: auto;
+    width: auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.generate-button-placeholder {
+    text-align: center;
+    border-style: dotted;
+    font-size: 0.9em;
+    color: #333;
+    border: 1px solid #aaa;
+}
+
+.generate-button {
+    cursor: pointer;
+    background: #444;
+    color: white;
+    font-weight: bold;
+}
+
+.generate-button:hover {
+    background: black;
+}

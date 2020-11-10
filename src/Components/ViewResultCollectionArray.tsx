@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Result, ResultCollection } from "../Lib/Result";
+import "./ViewResultCollectionArray.css";
 
 interface Props {
     results: undefined | Array<ResultCollection>
@@ -8,8 +9,13 @@ interface Props {
 function ViewResultCollectionArray(props: Props) {
     if (props.results) {
         return (
-            <section className="view-result-collection-container">
-                {props.results.map((r) => ViewResultCollection(r))}
+            <section className="view-result-collection-section">
+                <section className="view-result-collection-container">
+                    {props.results.map((r) => ViewResultCollection(r))}
+                </section>
+                <button className="view-result-print-button">
+                    Print
+                </button>
             </section>
         )
     } else {
@@ -109,6 +115,7 @@ function ViewResultCollection(collection: ResultCollection) {
 function ViewResult(result: Result) {
     switch (result.type) {
         case "quant": {
+            const abnormalAsterisk = (result.result < result.refRange.lower || result.result > result.refRange.upper) ? " *" : "";
             return (
                 <div className="view-result-quant">
                     <div className="view-result-quant-identifier">
@@ -124,7 +131,7 @@ function ViewResult(result: Result) {
                     </div>
 
                     <div className="view-result-quant-result">
-                        {result.result.toPrecision(3)}
+                        {result.result.toPrecision(3) + abnormalAsterisk}
                     </div>
                 </div>
             )

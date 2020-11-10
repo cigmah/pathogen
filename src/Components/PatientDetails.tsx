@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { Gender, Patient, PatientInProgress } from "../Lib/Patient";
+import "./PatientDetails.css";
 
 interface Props {
     patient: PatientInProgress;
@@ -15,28 +16,27 @@ function PatientDetails(props: Props) {
     return (
         <article className="patient-details-group">
             <h2 className="patient-details-group-header">Sim Patient Details</h2>
-            <div className="patient-details-name-group">
-                <LabelWithInput
-                    label="First Name"
-                    onChange={props.onChangeFirstName}
-                    type="text"
-                    value={props.patient.firstName}
-                />
-                <LabelWithInput
-                    label="Last Name"
-                    onChange={props.onChangeLastName}
-                    type="text"
-                    value={props.patient.lastName}
-                />
-            </div>
-            <div className="patient-details-dob-gender-group">
-                <LabelWithInput
-                    label="Date of Birth"
-                    onChange={props.onChangeDob}
-                    type="date"
-                    value={props.patient.dob}
-                />
-                <div className="patient-details-input-group">
+            <LabelWithInput
+                label="First Name"
+                onChange={props.onChangeFirstName}
+                type="text"
+                value={props.patient.firstName}
+            />
+            <LabelWithInput
+                label="Last Name"
+                onChange={props.onChangeLastName}
+                type="text"
+                value={props.patient.lastName}
+            />
+            <LabelWithInput
+                label="Date of Birth"
+                onChange={props.onChangeDob}
+                type="date"
+                value={props.patient.dob}
+            />
+            <div className="patient-details-input-group" id="patient-details-input-gender-group">
+                <label className="patient-details-input-label">Gender</label>
+                <div className="patient-details-input-gender-radio-container">
                     <GenderRadio label="male" chosen={props.patient.gender} onChange={props.onChangeGender} />
                     <GenderRadio label="female" chosen={props.patient.gender} onChange={props.onChangeGender} />
                     <GenderRadio label="other" chosen={props.patient.gender} onChange={props.onChangeGender} />
@@ -53,7 +53,7 @@ function PatientDetails(props: Props) {
 }
 
 function GenderRadio(props: { label: Gender, chosen: Gender, onChange: (g: ChangeEvent<HTMLInputElement>) => void }) {
-    const inputId = "patient-details-input-gender" + props.label;
+    const inputId = "patient-details-input-gender-" + props.label;
     const chosen = props.label == props.chosen;
 
     let userLabel;
@@ -76,11 +76,12 @@ function GenderRadio(props: { label: Gender, chosen: Gender, onChange: (g: Chang
         <div className="patient-details-input-radio-group">
             <input type="radio"
                 id={inputId}
+                className="patient-details-input-gender-radio"
                 name="patient-details-input-gender"
                 value={props.label}
                 onChange={props.onChange}
                 checked={chosen} />
-            <label className="patient-details-input-label" htmlFor={inputId}>{userLabel}</label>
+            <label className="patient-details-input-radio-label" htmlFor={inputId}>{userLabel}</label>
         </div>
     )
 }
@@ -94,10 +95,10 @@ interface LabelWithInputProps<T> {
 
 function LabelWithInput<T>(props: LabelWithInputProps<T>) {
 
-    const inputId = "patient-details-input" + props.label.toLowerCase().replace(" ", "-");
+    const inputId = "patient-details-input-" + props.label.toLowerCase().replaceAll(" ", "-");
 
     return (
-        <div className="patient-details-input-group">
+        <div className="patient-details-input-group" id={inputId + "-group"}>
             <label className="patient-details-input-label" htmlFor={inputId}>{props.label}</label>
             <input
                 className="patient-details-input"

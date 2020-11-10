@@ -161,9 +161,6 @@ function Root() {
             </section>
             <section className="main-right">
                 <ViewResultCollectionArray results={state.results} />
-                <section className="side-panel">
-                    <button>Print</button>
-                </section>
             </section>
         </main>
     );

@@ -3,6 +3,7 @@ import { Condition } from "../Lib/Condition";
 import { parseConfig } from "../Lib/Generator";
 import { Investigation } from "../Lib/Investigation";
 import { PatientInProgress } from "../Lib/Patient";
+import "./GenerateButton.css";
 
 interface Props {
     patient: PatientInProgress;

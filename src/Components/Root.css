@@ -20,3 +20,25 @@ input {
     border: none;
     background: none;
 }
+
+.main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-left {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    overflow: auto;
+    box-shadow: 0 0 10px 5px #ddd;
+    z-index: 20;
+}
+
+.main-right {
+    background: #fcfcfc;
+    flex-grow: 1;
+    display: flex;
+}

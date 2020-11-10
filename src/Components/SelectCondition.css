@@ -1,0 +1,72 @@
+.select-condition {
+}
+
+.select-condition-input-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-condition-input-label {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.select-condition-input {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+}
+
+.select-condition-input-results-container {
+    position: relative;
+}
+
+.select-condition-results-container {
+    position: absolute;
+    bottom: 100%;
+    background: white;
+    left: 0;
+    width: 100%;
+    max-height: 30vh;
+    box-shadow: 0 0 12px -6px black;
+    z-index: 50;
+    overflow: auto;
+}
+
+.select-condition-result {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.select-condition-result:hover {
+    background: #eee;
+}
+
+.select-condition-result-name {
+    font-weight: bold;
+    text-align: left;
+}
+
+.select-condition-selected-name {
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+.select-condition-selected-delete {
+    width: auto;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.select-condition-selected-delete:hover {
+    background: tomato;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}

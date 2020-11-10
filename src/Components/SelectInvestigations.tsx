@@ -37,22 +37,25 @@ function SelectInvestigations(props: Props) {
     };
     const fuse = new Fuse(investigationArray, options);
 
+    const showResultsClass = props.investigations.length > 0 ? "" : " hidden";
+
     return (
         <div className="select-investigation">
+            <label className="select-investigation-input-label">Investigations</label>
             <div className="select-investigation-input-container">
+                <div className="select-investigation-results-container">
+                    {filtered.map((r) =>
+                        ViewInvestigationResult(r, props.onAddInvestigation)
+                    )}
+                </div>
                 <input
                     type="text"
                     className="select-investigation-input"
                     value={currentSearch}
                     onChange={onChange}
                 />
-                <div className="select-investigation-results-container">
-                    {filtered.map((r) =>
-                        ViewInvestigationResult(r, props.onAddInvestigation)
-                    )}
-                </div>
             </div>
-            <div className="select-investigation-selected-container">
+            <div className={"select-investigation-selected-container" + showResultsClass}>
                 {props.investigations.map((s) => ViewSelected(s, props.onDeleteInvestigation))}
             </div>
         </div>
@@ -89,10 +92,10 @@ function ViewInvestigationResult(
             <div className="select-investigation-result-name">
                 {investigation.name}
             </div>
+            {collectionElement}
             <div className="select-investigation-result-description">
                 {investigation.description}
             </div>
-            {collectionElement}
         </button>
     );
 }

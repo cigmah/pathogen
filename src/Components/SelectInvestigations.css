@@ -1,94 +1,97 @@
 .select-investigation {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.select-investigation-input-label {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.select-investigation-input {
+    border: 1px solid #aaa;
+    border-radius: 5px;
     padding: 0.5rem;
+    width: 100%;
+    display: flex;
 }
 
 .select-investigation-input-container {
     position: relative;
 }
 
-.select-investigation-input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-bottom: 2px solid black;
-    transition: 0.2s all;
-    z-index: 100;
-}
-
-.select-investigation-input:focus {
-    border-bottom-color: orange;
-    outline: none;
-}
-
 .select-investigation-results-container {
     position: absolute;
+    bottom: 100%;
+    background: white;
+    left: 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 2px -2px #eee;
+    max-height: 40vh;
+    box-shadow: 0 0 12px -6px black;
     z-index: 50;
+    overflow: auto;
 }
 
 .select-investigation-result {
-    border: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
-    padding: 5px 10px;
-    transition: 0.2s all;
+    padding: 8px;
+    cursor: pointer;
+    text-align: left;
 }
 
 .select-investigation-result:hover {
-    background: #f0f0f0;
-    cursor: pointer;
+    background: #eee;
 }
 
 .select-investigation-result-name {
     font-weight: bold;
-    font-size: 1em;
     margin-bottom: 5px;
 }
 
 .select-investigation-result-description {
-    color: gray;
+    font-size: 0.6em;
 }
 
 .select-investigation-result-collection {
-    color: gray;
-    font-size: 0.8em;
+    font-size: 0.6em;
+    font-weight: bold;
+    float: left;
 }
 
 .select-investigation-selected-container {
+    margin-top: 0.5rem;
+    border: 1px solid #aaa;
+    padding: 1rem;
+    border-radius: 0.5rem;
     display: flex;
     flex-wrap: wrap;
 }
 
 .select-investigation-selected {
     display: flex;
-    border: 1px solid #eee;
-    margin-right: 0.5rem;
+    background: #eee;
+    overflow: hidden;
     font-size: 0.9em;
-    margin-bottom: 0.5rem;
-}
-
-.select-investigation-selected-body {
-    padding: 5px;
+    color: #333;
+    margin: 5px;
 }
 
 .select-investigation-selected-name {
-    margin-bottom: 3px;
-}
-
-.select-investigation-selected-collection {
-    font-size: 0.8em;
+    padding: 4px 8px;
 }
 
 .select-investigation-selected-delete {
-    width: 2rem;
+    width: auto;
     cursor: pointer;
-    background: #eee;
+    border-radius: 2px;
 }
 
 .select-investigation-selected-delete:hover {
     background: tomato;
     color: white;
+}
+
+.hidden {
+    display: none;
 }

@@ -1,0 +1,102 @@
+.patient-details-group {
+    display: grid;
+    grid-template-areas: "title title"
+                         "first last"
+                         "dob gender"
+                         "history history";
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.patient-details-group-header {
+    grid-area: title;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.patient-details-input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.patient-details-input-label {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.patient-details-input {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.patient-details-input:focus {
+    border: 1px solid steelblue;
+}
+
+#patient-details-input-first-name-group {
+    grid-area: first;
+}
+
+#patient-details-input-last-name-group {
+    grid-area: last;
+}
+
+#patient-details-input-date-of-birth-group {
+    grid-area: dob;
+}
+
+#patient-details-input-gender-group {
+    grid-area: gender;
+}
+
+#patient-details-input-clinical-history-group {
+    grid-area: history;
+}
+
+.patient-details-input-gender-radio-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.patient-details-input-radio-group {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.patient-details-input-radio-group:hover {
+    background: #eee;
+}
+
+.patient-details-input-gender-radio {
+    margin: 0;
+    display: none;
+
+}
+
+.patient-details-input-radio-label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+
+.patient-details-input-gender-radio:checked +label {
+    font-weight: bold;
+    background: #444;
+    color: white;
+}
