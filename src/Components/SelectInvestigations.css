@@ -1,0 +1,94 @@
+.select-investigation {
+    padding: 0.5rem;
+}
+
+.select-investigation-input-container {
+    position: relative;
+}
+
+.select-investigation-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid black;
+    transition: 0.2s all;
+    z-index: 100;
+}
+
+.select-investigation-input:focus {
+    border-bottom-color: orange;
+    outline: none;
+}
+
+.select-investigation-results-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 2px -2px #eee;
+    z-index: 50;
+}
+
+.select-investigation-result {
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    transition: 0.2s all;
+}
+
+.select-investigation-result:hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.select-investigation-result-name {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.select-investigation-result-description {
+    color: gray;
+}
+
+.select-investigation-result-collection {
+    color: gray;
+    font-size: 0.8em;
+}
+
+.select-investigation-selected-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.select-investigation-selected {
+    display: flex;
+    border: 1px solid #eee;
+    margin-right: 0.5rem;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
+.select-investigation-selected-body {
+    padding: 5px;
+}
+
+.select-investigation-selected-name {
+    margin-bottom: 3px;
+}
+
+.select-investigation-selected-collection {
+    font-size: 0.8em;
+}
+
+.select-investigation-selected-delete {
+    width: 2rem;
+    cursor: pointer;
+    background: #eee;
+}
+
+.select-investigation-selected-delete:hover {
+    background: tomato;
+    color: white;
+}

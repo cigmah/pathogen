@@ -1,0 +1,14 @@
+- name: iron deficiency anaemia
+  description: ""
+  constraints:
+    - investigation: haemoglobin
+      constraint: below ref
+    - investigation: mean corpuscular volume
+      constraint: below ref
+- name: vitamin B12 deficiency
+  description: ""
+  constraints:
+    - investigation: haemoglobin
+      constraint: below ref
+    - investigation: mean corpuscular volume
+      constraint: above ref

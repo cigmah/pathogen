@@ -1,0 +1,86 @@
+- name: haemoglobin
+  description: ""
+  alternateNames: []
+  identifier: Hb
+  collection: FBE
+  spec:
+    type: quant
+    units: g/L
+    minValue: 50
+    maxValue: 200
+    ref:
+      type: static
+      lower: 120
+      upper: 170
+- name: mean corpuscular volume
+  description: ""
+  alternateNames: []
+  identifier: MCV
+  collection: FBE
+  spec:
+    type: quant
+    units: fL
+    minValue: 60
+    maxValue: 160
+    ref:
+      type: static
+      lower: 100
+      upper: 120
+- name: white cell count
+  description: ""
+  alternateNames: []
+  identifier: WCC
+  collection: FBE
+  spec:
+    type: quant
+    units: x10^9/L
+    minValue: 0
+    maxValue: 100.0
+    ref:
+      type: grouped
+      groups:
+        - predicates:
+            - type: age
+              lower: 0
+              upper: 1
+          range:
+            lower: 6.0
+            upper: 22.0
+        - predicates:
+            - type: age
+              lower: 1
+              upper: 4
+          range:
+            lower: 6.0
+            upper: 18.0
+        - predicates:
+            - type: age
+              lower: 4
+              upper: 7
+          range:
+            lower: 5.0
+            upper: 15.0
+        - predicates:
+            - type: age
+              lower: 8
+              upper: 12
+          range:
+            lower: 4.5
+            upper: 13.5
+      default:
+        lower: 4.0
+        upper: 11.0
+- name: neutrophil count
+  description: ""
+  alternateNames: []
+  identifier: Neutrophils
+  collection: FBE
+  spec:
+    type: quant
+    units: x10^9/L
+    minValue: 0
+    maxValue: 40
+    ref:
+      type: static
+      lower: 1.5
+      upper: 8.0
