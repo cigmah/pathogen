@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Condition } from "../Lib/Condition";
 import { parseConfig } from "../Lib/Generator";
 import { Investigation } from "../Lib/Investigation";
